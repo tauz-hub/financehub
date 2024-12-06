@@ -45,30 +45,39 @@ function calcularParcelas() {
 
 
 function calcularPrazoOuAVista() {
-  // Pegando os valores dos campos
   const valorCompra = parseFloat(document.getElementById('valorCompra').value);
   const descontoVista = parseFloat(document.getElementById('descontoVista').value);
   const numeroParcelas = parseInt(document.getElementById('parcelas').value);
   const jurosParcelado = parseFloat(document.getElementById('jurosParcelado').value);
+  const rendimento = document.getElementById('investimento').value;
+  const taxaRendimento = parseFloat(document.getElementById('taxaRendimento').value);
 
   if (isNaN(valorCompra) || isNaN(descontoVista) || isNaN(numeroParcelas) || isNaN(jurosParcelado)) {
-    alert("Por favor, preencha todos os campos.");
+    document.getElementById("resultadoAVistaOuPrazo").innerText = "Por favor, preencha todos os campos corretamente.";
     return;
   }
 
-  // Cálculo do valor à vista com o desconto
   const valorVista = valorCompra * (1 - descontoVista / 100);
-
-  // Cálculo do valor parcelado
   const valorParcela = (valorCompra * (1 + jurosParcelado / 100)) / numeroParcelas;
   const totalParcelado = valorParcela * numeroParcelas;
 
-  // Exibindo o resultado
-  const resultado = document.getElementById('resultado');
+  let rendimentoVista = 0;
+  if (rendimento === "poupanca") {
+    rendimentoVista = valorVista * 0.04;
+  } else if (rendimento === "tesouro") {
+    rendimentoVista = valorVista * 0.10;
+  } else if (rendimento === "cdb") {
+    rendimentoVista = valorVista * 0.08;
+  } else if (rendimento === "personalizado" && !isNaN(taxaRendimento)) {
+    rendimentoVista = valorVista * (taxaRendimento / 100);
+  }
+
+  const resultado = document.getElementById('resultadoAVistaOuPrazo');
   resultado.innerHTML = `
-    <p><strong>Valor à vista:</strong> R$ ${valorVista.toFixed(2)}</p>
-    <p><strong>Valor a prazo (total):</strong> R$ ${totalParcelado.toFixed(2)}</p>
-    <p><strong>Valor da parcela:</strong> R$ ${valorParcela.toFixed(2)}</p>
-    <p><strong>Conclusão:</strong> ${totalParcelado > valorVista ? 'Comprar à vista é mais vantajoso.' : 'Comprar a prazo pode ser vantajoso, dependendo das condições.'}</p>
-  `;
+  <p><strong>Valor à vista com desconto:</strong> R$ ${valorVista.toFixed(2)}</p>
+  <p><strong>Valor a prazo (total):</strong> R$ ${totalParcelado.toFixed(2)}</p>
+  <p><strong>Valor da parcela:</strong> R$ ${valorParcela.toFixed(2)}</p>
+  <p><strong>Rendimento do dinheiro à vista:</strong> R$ ${rendimentoVista.toFixed(2)}</p>
+  <p><strong>Conclusão:</strong> ${totalParcelado > valorVista + rendimentoVista ? 'Comprar à vista com rendimento é mais vantajoso.' : 'Comprar a prazo pode ser vantajoso, dependendo das condições.'}</p>
+`;
 }

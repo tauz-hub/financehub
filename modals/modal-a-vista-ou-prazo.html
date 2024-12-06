@@ -5,21 +5,39 @@
     <h2>Calcule se vale a pena comprar a prazo ou à vista</h2>
 
     <!-- Formulário de entrada -->
-    <label for="valorCompra">Valor da Compra:</label><br>
-    <input type="number" id="valorCompra" placeholder="Ex: 1000,00"><br><br>
+    <div>
+      <label for="valorCompra">Valor da Compra:</label>
+      <input type="number" id="valorCompra" placeholder="Ex: 1000,00"><br><br>
+    </div>
+    <div>
+      <label for="descontoVista">Desconto à vista (%):</label>
+      <input type="number" id="descontoVista" placeholder="Ex: 10"><br><br>
+    </div>
+    <div>
+      <label for="parcelas">Número de Parcelas:</label>
+      <input type="number" id="parcelas" placeholder="Ex: 12"><br><br>
+    </div>
+    <div>
+      <label for="jurosParcelado">Juros por Parcela (% ao mês):</label>
+      <input type="number" id="jurosParcelado" placeholder="Ex: 3"><br><br>
+    </div>
 
-    <label for="descontoVista">Desconto à vista (%):</label><br>
-    <input type="number" id="descontoVista" placeholder="Ex: 10"><br><br>
-
-    <label for="parcelas">Número de Parcelas:</label><br>
-    <input type="number" id="parcelas" placeholder="Ex: 12"><br><br>
-
-    <label for="jurosParcelado">Juros por Parcela (% ao mês):</label><br>
-    <input type="number" id="jurosParcelado" placeholder="Ex: 3"><br><br>
+    <!-- Opção de onde investir o dinheiro à vista -->
+    <div>
+      <label for="investimento">Onde você guarda seu dinheiro para render?</label><br>
+      <select id="investimento">
+        <option value="poupanca">Poupança</option>
+        <option value="tesouro">Tesouro Selic (LFT)</option>
+        <option value="cdb">CDB de um banco grande (80% CDI)</option>
+        <option value="personalizado">Personalizar rendimento</option>
+      </select>
+      <input type="number" id="taxaRendimento" placeholder="Taxa de Rendimento (%)">
+    </div>
 
     <!-- Resultado -->
     <div id="resultado"></div>
 
     <button onclick="calcularPrazoOuAVista()">Calcular</button>
+    <p id="resultadoAVistaOuPrazo"></p>
   </div>
 </div>
