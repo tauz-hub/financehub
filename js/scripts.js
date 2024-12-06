@@ -22,7 +22,7 @@ function calcularJurosCompostos() {
 
   let montante = capital;
   for (let i = 1; i <= tempo; i++) {
-    montante = montante * (1 + juros) + aporte;
+    montante = montante * (1 + juros) + aporte || 0;
   }
 
   document.getElementById("resultadoJuros").innerText =
@@ -33,6 +33,12 @@ function calcularParcelas() {
   const valor = parseFloat(document.getElementById("valor").value);
   const parcelas = parseInt(document.getElementById("parcelas").value);
   const taxa = parseFloat(document.getElementById("taxa").value) / 100;
-  const valorParcela = (valor * (1 + taxa)) / parcelas;
+
+  if (isNaN(valor) || isNaN(parcelas) || isNaN(taxa)) {
+    document.getElementById("resultadoJuros").innerText = "Por favor, preencha todos os campos corretamente.";
+    return;
+  }
+
+  const valorParcela = (valor * (1 + taxa)) / parcelas || 0;
   document.getElementById("resultadoParcelas").innerText = "Valor da Parcela: R$ " + valorParcela.toFixed(2);
 }
