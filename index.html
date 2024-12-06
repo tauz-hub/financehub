@@ -16,32 +16,40 @@
   </header>
 
   <main>
-    <!-- Card 1 -->
     <div class="card" onclick="openModal('jurosModal')">
       <i class="fas fa-percentage icon"></i>
       <h2>Calculadora de Juros Compostos</h2>
       <p>Simule os ganhos de seus investimentos com juros compostos.</p>
     </div>
 
-    <!-- Card 2 -->
     <div class="card" onclick="openModal('parcelasModal')">
       <i class="fas fa-calculator icon"></i>
       <h2>Calculadora de Parcelas</h2>
       <p>Descubra o valor das parcelas de seu financiamento.</p>
     </div>
 
-    <!-- Card 3 -->
+    <div class="card" onclick="openModal('prazoouparcelarModal')">
+      <i class="fas fa-calculator icon"></i>
+      <h2>A prazo ou à vista?</h2>
+      <p>Descubra se vale a pena comprar parcelado.</p>
+    </div>
+
     <a href="https://br.tradingview.com/symbols/BTCUSD/" target="_blank" class="card">
       <i class="fas fa-chart-line icon"></i>
       <h2>Gráficos TradingView</h2>
       <p>Acompanhe gráficos de ações e criptomoedas em tempo real.</p>
     </a>
 
-    <!-- Card 4 -->
     <a href="https://coinmarketcap.com" target="_blank" class="card">
       <i class="fas fa-coins icon"></i>
       <h2>Monitor de Criptomoedas</h2>
       <p>Veja preços, volume e capitalização de mercado de criptomoedas.</p>
+    </a>
+
+    <a href="https://www.investidor.b3.com.br/" target="_blank" class="card">
+      <i class="fas fa-solid fa-arrow-trend-up icon"></i>
+      <h2>Investidor B3</h2>
+      <p>Site do investidor da bolsa de valores.</p>
     </a>
   </main>
 
@@ -57,6 +65,7 @@
       const modals = [
         'modal-juros.html',
         'modal-parcelas.html',
+        'modal-a-vista-ou-prazo.html'
       ];
 
       // Carregar cada arquivo de modal

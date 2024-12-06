@@ -1,0 +1,25 @@
+<!-- Modal A prazo ou à vista -->
+<div id="prazoouparcelarModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal('prazoouparcelarModal')">&times;</span>
+    <h2>Calcule se vale a pena comprar a prazo ou à vista</h2>
+
+    <!-- Formulário de entrada -->
+    <label for="valorCompra">Valor da Compra:</label><br>
+    <input type="number" id="valorCompra" placeholder="Ex: 1000,00"><br><br>
+
+    <label for="descontoVista">Desconto à vista (%):</label><br>
+    <input type="number" id="descontoVista" placeholder="Ex: 10"><br><br>
+
+    <label for="parcelas">Número de Parcelas:</label><br>
+    <input type="number" id="parcelas" placeholder="Ex: 12"><br><br>
+
+    <label for="jurosParcelado">Juros por Parcela (% ao mês):</label><br>
+    <input type="number" id="jurosParcelado" placeholder="Ex: 3"><br><br>
+
+    <!-- Resultado -->
+    <div id="resultado"></div>
+
+    <button onclick="calcularPrazoOuAVista()">Calcular</button>
+  </div>
+</div>
