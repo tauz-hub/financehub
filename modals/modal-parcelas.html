@@ -1,0 +1,15 @@
+<!-- Modal Parcelas -->
+<div id="parcelasModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal('parcelasModal')">&times;</span>
+    <h2>Calculadora de Parcelas</h2>
+    <label>Valor Total:</label><br>
+    <input type="number" id="valor" placeholder="Ex: 10000"><br>
+    <label>Número de Parcelas:</label><br>
+    <input type="number" id="parcelas" placeholder="Ex: 12"><br>
+    <label>Taxa de Juros (%):</label><br>
+    <input type="number" id="taxa" placeholder="Ex: 2"><br>
+    <button onclick="calcularParcelas()">Calcular</button>
+    <p id="resultadoParcelas"></p>
+  </div>
+</div>
