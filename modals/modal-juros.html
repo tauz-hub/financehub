@@ -1,0 +1,17 @@
+<!-- Modal Juros Compostos -->
+<div id="jurosModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal('jurosModal')">&times;</span>
+    <h2>Calculadora de Juros Compostos</h2>
+    <label>Capital Inicial:</label><br>
+    <input type="number" id="capital" placeholder="Ex: 1000"><br><br>
+    <label>Aporte Mensal:</label><br>
+    <input type="number" id="aporte" placeholder="Ex: 200"><br><br>
+    <label>Taxa de Juros (% ao mês):</label><br>
+    <input type="number" id="juros" placeholder="Ex: 1"><br><br>
+    <label>Período (meses):</label><br>
+    <input type="number" id="tempo" placeholder="Ex: 12"><br><br>
+    <button onclick="calcularJurosCompostos()">Calcular</button>
+    <p id="resultadoJuros"></p>
+  </div>
+</div>
